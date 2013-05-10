@@ -1,5 +1,3 @@
-require "privateer/version"
+require 'privateer/version'
 
-module Privateer
-  # Your code goes here...
-end
+require 'privateer/connection'

@@ -1,6 +1,6 @@
 # Privateer
 
-TODO: Write a gem description
+Privateer provides an interface for integrating private apps with the Shopify API.
 
 ## Installation
 
