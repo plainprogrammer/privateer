@@ -18,7 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    store = Privateer::Connection.new(store_name: 'test', api_key: 'testkey', password: 'secret')
 
 ## Contributing
 
