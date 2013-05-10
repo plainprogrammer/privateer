@@ -26,4 +26,12 @@ describe Privateer::Connection do
       }.must_raise ArgumentError
     end
   end
+
+  describe '#connect' do
+
+  end
+
+  describe '#call' do
+
+  end
 end
