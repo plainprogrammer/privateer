@@ -27,10 +27,6 @@ describe Privateer::Connection do
     end
   end
 
-  describe '#connect' do
-
-  end
-
   describe '#call' do
 
   end
