@@ -1,9 +1,10 @@
 require 'spec_helper'
 
 describe Privateer::Connection do
-  describe '.new' do
-    let(:valid_options) { {store_name: 'test', api_key: 'testkey', password: 'secret'}}
+  let(:valid_options) { VALID_OPTIONS }
+  let(:connection) { Privateer::Connection.new(valid_options) }
 
+  describe '.new' do
     it 'accepts valid options' do
       Privateer::Connection.new(valid_options).must_be_instance_of Privateer::Connection
     end
@@ -27,7 +28,39 @@ describe Privateer::Connection do
     end
   end
 
-  describe '#call' do
+  describe '#get' do
+    it 'raises Argument Error on missing target' do
+      lambda {
+        connection.get
+      }.must_raise ArgumentError
+    end
 
+    it 'accepts parameters' do
+      connection.get('products', {collection_id: 1})
+    end
+  end
+
+  describe '#post' do
+    it 'raises Argument Error on missing target' do
+      lambda {
+        connection.post
+      }.must_raise ArgumentError
+    end
+  end
+
+  describe '#put' do
+    it 'raises Argument Error on missing target' do
+      lambda {
+        connection.put
+      }.must_raise ArgumentError
+    end
+  end
+
+  describe '#delete' do
+    it 'raises Argument Error on missing target' do
+      lambda {
+        connection.delete
+      }.must_raise ArgumentError
+    end
   end
 end
