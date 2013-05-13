@@ -1,8 +1,15 @@
 require 'spec_helper'
 
 describe Privateer::Connection do
-  let(:connection) { Privateer::Connection.new(VALID_OPTIONS) }
+  before :all do
+    VCR.insert_cassette('connection_spec', record: :new_episodes)
+  end
 
+  after :all do
+    VCR.eject_cassette
+  end
+
+  let(:connection) { Privateer::Connection.new(VALID_OPTIONS) }
   let(:product_hash) {
     {
         product: {

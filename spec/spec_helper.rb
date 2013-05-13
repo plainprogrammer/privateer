@@ -7,6 +7,12 @@ SimpleCov.start
 require 'minitest/spec'
 require 'minitest/autorun'
 require 'turn'
+require 'vcr'
+
+VCR.configure do |c|
+  c.cassette_library_dir = 'spec/fixtures/cassettes'
+  c.hook_into :faraday
+end
 
 require 'privateer'
 
