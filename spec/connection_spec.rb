@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe Privateer::Connection do
   before :all do
-    VCR.insert_cassette('connection_spec', record: :new_episodes)
+    VCR.insert_cassette('connection_spec', record: :new_episodes) unless ENV['LIVE_TEST']
   end
 
   after :all do
-    VCR.eject_cassette
+    VCR.eject_cassette unless ENV['LIVE_TEST']
   end
 
   let(:connection) { Privateer::Connection.new(VALID_OPTIONS) }
