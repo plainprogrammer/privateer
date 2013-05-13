@@ -38,6 +38,12 @@ describe Privateer::Connection do
     it 'accepts parameters' do
       connection.get('products', {collection_id: 1})
     end
+
+    it 'returns a valid response' do
+      code, body, resp = connection.get('products')
+      code.must_equal 200
+      body.wont_be_nil
+    end
   end
 
   describe '#post' do

@@ -13,19 +13,23 @@ class Privateer::Connection
     @connection = Faraday.new(url: @store_url)
   end
 
-  def get(target, params = nil)
-
+  def get(target, params = {})
+    resp = @connection.get(target, params)
+    return resp.code, resp.body, resp
   end
 
-  def post(target, params = nil)
-
+  def post(target, params = {})
+    resp = @connection.post(target, params)
+    return resp.code, resp.body, resp
   end
 
-  def put(target, params = nil)
-
+  def put(target, params = {})
+    resp = @connection.put(target, params)
+    return resp.code, resp.body, resp
   end
 
   def delete(target, params = nil)
-
+    resp = @connection.delete(target, params)
+    return resp.code, resp.body, resp
   end
 end
