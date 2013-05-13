@@ -143,4 +143,10 @@ describe Privateer::Connection do
       resp.must_be_instance_of Faraday::Response
     end
   end
+
+  describe '#products' do
+    it 'returns a Privateer::Types::ProductArray' do
+      connection.products.must_be_instance_of Privateer::Types::ProductArray
+    end
+  end
 end
