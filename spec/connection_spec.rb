@@ -56,10 +56,6 @@ describe Privateer::Connection do
       }.must_raise ArgumentError
     end
 
-    it 'accepts parameters' do
-      connection.get('products', {collection_id: 1})
-    end
-
     it 'returns a valid response' do
       code, body, resp = connection.get('products')
       code.must_equal 200
@@ -73,10 +69,6 @@ describe Privateer::Connection do
       lambda {
         connection.post
       }.must_raise ArgumentError
-    end
-
-    it 'accepts parameters' do
-      connection.post('products', product_hash)
     end
 
     it 'returns a valid response' do
@@ -108,10 +100,6 @@ describe Privateer::Connection do
       }.must_raise ArgumentError
     end
 
-    it 'accepts parameters' do
-      connection.put("products/#{@product_id}", update_hash)
-    end
-
     it 'returns a valid response' do
       code, body, resp = connection.put("products/#{@product_id}", update_hash)
       code.must_equal 200
@@ -130,10 +118,6 @@ describe Privateer::Connection do
       lambda {
         connection.delete
       }.must_raise ArgumentError
-    end
-
-    it 'accepts parameters' do
-      connection.delete("products/#{@product_id}", {collection_id: 1})
     end
 
     it 'returns a valid response' do
