@@ -2,6 +2,8 @@
 
 Privateer provides an interface for integrating private apps with the Shopify API.
 
+[![Build Status](https://travis-ci.org/plainprogrammer/privateer.png?branch=master)](https://travis-ci.org/plainprogrammer/privateer)
+
 ## Installation
 
 Add this line to your application's Gemfile:
