@@ -1,3 +1,6 @@
+require 'rubygems'
+require 'bundler/setup'
+
 require 'bundler/gem_tasks'
 
 require 'rake'
@@ -7,3 +10,4 @@ Rake::TestTask.new do |t|
   t.pattern = 'spec/**/*_spec.rb'
   t.libs.push 'spec'
 end
+task :default => [:test]

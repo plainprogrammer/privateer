@@ -1,12 +1,11 @@
 require 'spec_helper'
 
 describe Privateer::Connection do
-  let(:valid_options) { VALID_OPTIONS }
-  let(:connection) { Privateer::Connection.new(valid_options) }
+  let(:connection) { Privateer::Connection.new(VALID_OPTIONS) }
 
   describe '.new' do
     it 'accepts valid options' do
-      Privateer::Connection.new(valid_options).must_be_instance_of Privateer::Connection
+      connection.must_be_instance_of Privateer::Connection
     end
 
     it 'raises ArgumentError on missing store_name' do
@@ -43,6 +42,7 @@ describe Privateer::Connection do
       code, body, resp = connection.get('products')
       code.must_equal 200
       body.wont_be_nil
+      resp.must_be_instance_of Faraday::Response
     end
   end
 
