@@ -3,6 +3,7 @@
 Privateer provides an interface for integrating private apps with the Shopify API.
 
 [![Build Status](https://travis-ci.org/plainprogrammer/privateer.png?branch=master)](https://travis-ci.org/plainprogrammer/privateer)
+[![Code Climate](https://codeclimate.com/github/plainprogrammer/privateer.png)](https://codeclimate.com/github/plainprogrammer/privateer)
 
 ## Installation
 
