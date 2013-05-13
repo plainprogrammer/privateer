@@ -1,9 +1,9 @@
+require 'thread'
 class Privateer::Types::ProductArray < Array
-  include Mutex_m
-
   def initialize(connection, params = {})
     @connection = connection
     @params = params
+    @mutex = Mutex.new
 
     status, body, response = @connection.get('products', @params)
 
@@ -14,8 +14,9 @@ class Privateer::Types::ProductArray < Array
   end
 
   def count
-    synchronize { @count ||= get_count }
+    @mutex.synchronize { @count ||= get_count }
   end
+  alias_method :size, :count
 
 private
   def get_count
