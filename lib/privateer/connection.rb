@@ -29,6 +29,10 @@ class Privateer::Connection
     call(:delete, target, params)
   end
 
+  def products(params = {})
+    Privateer::Types::ProductArray.new(self, params)
+  end
+
 private
   def call(verb, target, params)
     target += '.json' unless target =~ /\.json$/

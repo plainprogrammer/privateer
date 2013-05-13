@@ -10,11 +10,11 @@ require 'turn'
 
 require 'privateer'
 
-Turn.config do |c|
-  c.format  = :outline
-  c.trace   = true
-  c.natural = true
-end
+#Turn.config do |c|
+#  c.format  = :outline
+#  c.trace   = true
+#  c.natural = true
+#end
 
 VALID_OPTIONS = {
   store_name: ENV['SHOPIFY_TEST_STORE'] || 'test',
