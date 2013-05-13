@@ -19,9 +19,22 @@ Or install it yourself as:
 
     $ gem install privateer
 
-## Usage
+## Normal Usage
 
     store = Privateer::Connection.new(store_name: 'test', api_key: 'testkey', password: 'secret')
+
+## Advanced Usage
+
+The Shopify API may move faster than this gem gets updated. To cope with that we have four basic methods exposed by
+Privateer::Connection to allow you to work around things that are missing in our implementation:
+
+    store.get('products', {})
+    store.post('products', {})
+    store.put('products', {})
+    store.delete('products', {})
+
+Everything in this gem is built on those four core methods, and since we expose them to you it is easy to make up for
+anything we happen to miss.
 
 ## Contributing
 
