@@ -14,26 +14,25 @@ class Privateer::Connection
   end
 
   def get(target, params = {})
-    target += '.json' unless target =~ /\.json$/
-    resp = @connection.get(target, params)
-    return resp.status, JSON.parse(resp.body), resp
+    call(:get, target, params)
   end
 
   def post(target, params = {})
-    target += '.json' unless target =~ /\.json$/
-    resp = @connection.post(target, params)
-    return resp.status, JSON.parse(resp.body), resp
+    call(:post, target, params)
   end
 
   def put(target, params = {})
-    target += '.json' unless target =~ /\.json$/
-    resp = @connection.put(target, params)
-    return resp.status, JSON.parse(resp.body), resp
+    call(:put, target, params)
   end
 
-  def delete(target, params = nil)
+  def delete(target, params = {})
+    call(:delete, target, params)
+  end
+
+private
+  def call(verb, target, params)
     target += '.json' unless target =~ /\.json$/
-    resp = @connection.delete(target, params)
+    resp = @connection.send(verb, target, params)
     return resp.status, JSON.parse(resp.body), resp
   end
 end
